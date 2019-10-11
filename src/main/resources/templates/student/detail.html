@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h1>Student Detail</h1>
+            <div>
+                <div th:each="students: ${student}">
+                    <h4 th:text="'Thông tin chi tiết sinh viên ' + ${student.rollNumber}"></h4>
+                    <p th:text="${student.rollNumber}"></p>
+                    <p th:text="${student.name}"></p>
+                    <p th:text="${student.email}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

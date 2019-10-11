@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div>
+        <h1>Student Detail</h1>
+        <div>
+            <div>
+                <h4 th:text="'Lớp ' + ${clazz.name}"></h4>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>Rollnumber</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <tr th:each="student: ${clazz.getStudentSet()}">
+                <td th:text="${student.rollNumber}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.email}"></td>
+            </tr>
+        </table>
+        <form th:action="@{/clazz/addStudent}" method="post">
+            <div th:each="student: ${studentList}">
+                <input type="checkbox" name="id" th:value="${student.id}" th:text="${student.name}" />
+            </div>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

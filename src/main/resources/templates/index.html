@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<a th:href="@{'/account/' + ${student.id}}"><h1 th:text="'Welcome ' + ${student.name}"></h1></a>
+<div>
+    <table>
+        <tr>
+            <th>Class Id</th>
+            <th>Class name</th>
+            <th>Tool</th>
+        </tr>
+        <tr th:each="clazz: ${clazzList}">
+            <td th:text="${clazz.id}"></td>
+            <td th:text="${clazz.name}"></td>
+            <td><a th:href="@{'/clazz/' + ${clazz.id}}" th:text="Details"></a> </td>
+        </tr>
+    </table>
+</div>
+
+<form th:action="@{/logout}" method="post" >
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>

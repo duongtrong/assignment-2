@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create student</title>
+</head>
+<body>
+    <div>
+        <h1>Create Student</h1>
+        <form th:action="@{/account/create}" th:method="post" th:object="${student}">
+            <div>
+                <label><b>Name</b></label>
+                <input type="text" th:field="*{name}" placeholder="Enter name" required>
+                <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </div>
+            <div>
+                <label><b>Roll Number</b></label>
+                <input type="text"  th:field="*{rollNumber}" placeholder="Enter Roll number" required>
+                <span class="error" th:if="${#fields.hasErrors('rollNumber')}" th:errors="*{rollNumber}"></span>
+            </div>
+            <div>
+                <label><b>Email</b></label>
+                <input type="text"  th:field="*{email}" placeholder="Enter Email" required>
+                <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+            <div>
+                <label><b>Password</b></label>
+                <input type="password"  th:field="*{password}" placeholder="Enter Password" required>
+                <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+            </div>
+            <button type="submit">Register</button>
+            <button type="reset">Cancel</button>
+        </form>
+    </div>
+</body>
+</html>
